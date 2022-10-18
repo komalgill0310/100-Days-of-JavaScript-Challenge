@@ -13,6 +13,7 @@ _How to code_
 1. use array's every method to check if all the array items are number and if not then return "Strings not permitted!"
 2. Create a variable called updateArray.
 3. const updateArray = arr.slice(1)
-4. return arr.every((num,index) => updateArray[i]>num)
+4. In order to make both array's length equal => given array would be arr.slice(0,-1)
+5. return arr.every((num,index) => updateArray[i]>num)
 
 > We should get either true => if all the elements are greater or false otherwise.
