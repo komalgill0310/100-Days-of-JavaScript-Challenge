@@ -15,3 +15,12 @@ How to code:
 2. check the output:
    - if(arr1.pop()>arr2.pop())
      - then arr1.slice(-1)+arr1.slice(-2,-1)>arr2.slice(-1)+arr2.slice(-2,-1)
+
+NOTE:
+
+- POP() method will change the length of the original array
+  so instead of using pop, we can use slice to get the desired element and also slice will not change the length of the array
+
+Update version of the code should be:
+
+- you1.slice(-1) + you1.slice(-2, -1) > opp1.slice(-1) + opp1.slice(-2, -1)
