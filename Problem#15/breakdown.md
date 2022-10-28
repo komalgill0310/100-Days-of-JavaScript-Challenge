@@ -14,7 +14,7 @@ Breakdown:
 1. Create a copy of the original array
 
 - let copyOfArray = [].concat(originalArray)
-  - Note: If we do it like below in order to make the copy, then if you change the copy the original will get changed also.
+  - Note: If we do it as an examples in order to make the copy, then if you change the copy the original will get changed also.
     e.g.: let copyOfArray = originalArray
 
 2. Loop through the original Array using for loop
