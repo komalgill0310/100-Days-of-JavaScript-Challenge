@@ -20,3 +20,6 @@ function risiko(att, def) {
     0
   );
 }
+
+
+// Problem link: https://edabit.com/challenge/DzZfKGHEF8jWMNYXq
