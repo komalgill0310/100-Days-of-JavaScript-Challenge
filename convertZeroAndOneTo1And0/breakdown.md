@@ -41,7 +41,7 @@ if(word.toString().toLowerCase()==="zero") word = 0
 if(word.toString().toLowerCase()==="one") word = 1
 })
 
-- all the other words which are either zero/one, will get ignored here, and we will get the output in 0 and 1.
+- all the other words which are neither zero/one, will get ignored here, and we will get the output in 0 and 1.
 
 3. If the length of the output from array's map method % 8 === 0, return output from array's map method as it is.
 
