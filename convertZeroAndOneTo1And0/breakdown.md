@@ -53,4 +53,4 @@ if(word.toString().toLowerCase()==="one") word = 1
       - this will give us the length which is divisible by 8.
     - this will ignore the extra character from the end and we will be able to return an output which is divisible by 8.
 - REMEMBER:
-  - SLICE method ignores the fetch the value from first arg till before second arg.
+  - SLICE method fetch the value from first arg till before second arg.
