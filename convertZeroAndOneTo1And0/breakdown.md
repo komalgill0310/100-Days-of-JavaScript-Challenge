@@ -47,7 +47,7 @@ if(word.toString().toLowerCase()==="one") word = 1
 
 - If the length of the output from array's map method < 8, return ""
 - If the length of the output from array's map method > 8 && from output from array's map method % 8 != 0
-  - const remainder = output.length / 8
+  - const remainder = output.length % 8
   - return output.slice(0, output.length-remainder)
     - Reason for the second arg(output.length-remainder) of the slice Method =>
       - this will give us the length which is divisible by 8.
