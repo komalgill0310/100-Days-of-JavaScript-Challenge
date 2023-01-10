@@ -13,3 +13,6 @@ function textToNumberBinary(str) {
     return zeroAndOneTo0And1.slice(0, zeroAndOneTo0And1.length - remainder);
   }
 }
+
+
+//Problem link: https://edabit.com/challenge/iKRmj2Q6GQHkAXXxf
