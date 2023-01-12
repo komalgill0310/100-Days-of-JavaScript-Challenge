@@ -52,12 +52,12 @@ _Breakdown:_
 3. Use for...of loop to check for the likedSpots Conditions(Check condition from above):
 
 - for(let subArr of insertNumToArr){
-  if(num % 2 === 0){
-  likedSpots = (c[0]%2===0 && c[2]%2===0) ? likedSpots+1 : likedSpots
-  }
-  if(num%2!=0){
-  likedSpots = (c[0]%2!=0 && c[2]%2!=0) ? likedSpots+1 : likedSpots
-  }
+    if(num % 2 === 0){
+      likedSpots = (c[0]%2===0 && c[2]%2===0) ? likedSpots+1 : likedSpots
+    }
+    if(num%2!=0){
+      likedSpots = (c[0]%2!=0 && c[2]%2!=0) ? likedSpots+1 : likedSpots
+    }
   likedSpots = (c[0]%2===0 && c[2]%2!=0)||(c[0]%2!=0 && c[2]%2===0)? likedSpots+1 : likedSpots
   }
 
