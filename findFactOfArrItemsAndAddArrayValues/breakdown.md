@@ -20,9 +20,9 @@ Breakdown:
        - arr[i] = parseInt(arr[i])
        - let factorial = 1
        - _Find Factorial_
-         1. While(factorialNum > 0){
-            factorial = factorial \* factorialNum
-            factorialNum--
+         1. While(arr[i] > 0){
+            factorial = factorial \* arr[i]
+            arr[i]--
             }
        - calculatedFactorialArr.push(factorial)
 
