@@ -12,3 +12,5 @@ function sumDigProd(...num) {
     return sumOfArrayNumbers;
   }
 }
+
+// Problem Link: https://edabit.com/challenge/Kzmyf4pLx66ZRsnWk
