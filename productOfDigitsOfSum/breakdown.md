@@ -43,9 +43,8 @@ Breakdown:
 5. Check if length of the sum is === 1
    - Return sum
      else
-     let product = sum
-   1. while(productOfNum.toString().length != 1)
+   1. while(sum.toString().length != 1)
    2. Convert the sum into an array
-      - productOfNum = sum.toString().split("").reduce((a, c) => a \* parseInt(c), 1)
+      - sum = sum.toString().split("").reduce((a, c) => a \* parseInt(c), 1)
    3. When the while loop returns, false => Exit from the while loop
-   4. **Return** productOfNum
+   4. **Return** sum
