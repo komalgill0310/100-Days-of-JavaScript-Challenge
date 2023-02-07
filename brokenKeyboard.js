@@ -16,3 +16,13 @@ function findBrokenKeys(str1, str2) {
 }
 
 // Problem link: https://edabit.com/challenge/pbK3wzLDvdwfEKgMt
+
+// UPDATE
+function findBrokenKeys(correctPhrase, actualTyped) {
+  const correctPhraseChars = correctPhrase.split("");
+  const incorrectChars = correctPhraseChars.filter(
+    (ch, i) => ch !== actualTyped[i]
+  );
+  const uniqueIncorrectChars = [...new Set(incorrectChars)];
+  return uniqueIncorrectChars;
+}
