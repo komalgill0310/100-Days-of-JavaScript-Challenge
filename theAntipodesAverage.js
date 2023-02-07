@@ -15,8 +15,8 @@
 
 // PROBLEM BREKDOWN again into more simpler steps with variable names:
 // 1. if (array's length % 2) === 0
-// => const leftPartArr = arr.slice(0, (arr.length/2)+1)
-// => const reversedRightPartArr = arr.slice( (arr.length/2) + 1, -1)
+// => const leftArr = arr.slice(0, (arr.length/2)+1)
+// => const reversedRightArr = arr.slice( (arr.length/2) + 1, -1)
 // else
 // => const eliminateMiddleNumOfArr = arr.splice(Math.floor(arr.length/2), 1)
 // this will update the original array, so we do not need to store the result into a variable
@@ -28,42 +28,42 @@
 // IF array.length % 2 !== 0
 // arr.splice(Math.floor(arr.length/2), 1) => will update the original array
 //BREAK THE ARRAY INTO TWO EQUAL LENGTH OF AN ARRAY
-// const leftPartArr = arr.slice(0, (arr.length/2))
-// const reversedRightPartArr = arr.slice(arr.length/2).reverse()
-// PERFORM THE ADDTION OF leftPartArr with reversedRightPartArr and RETURN a NEW ARRAY
+// const leftArr = arr.slice(0, (arr.length/2))
+// const reversedRightArr = arr.slice(arr.length/2).reverse()
+// PERFORM THE ADDTION OF leftArr with reversedRightArr and RETURN a NEW ARRAY
 // I can use Map method, and it will return a new array
-// const sumOfleftArrWithReversedRightArr = leftPartArr.map((num, i) => num + reversedRightPartArr[i])
+// const sumOfleftArrWithReversedRightArr = leftArr.map((num, i) => num + reversedRightArr[i])
 // DIVIDE THE EACH ELEMENT OF THE sumOfleftArrWithReversedRightArr BY 2, return this array
 // USE ANOTHER MAP METHOD:
 // => const divideEachNumWithTwo = sumOfleftArrWithReversedRightArr.map(num => num / 2)
 
 // CAN I COMBINE STEP#35 & STEP# 38
-// const divideSumByTwo = leftPartArr.map((num, i) => (num + reversedRightPartArr[i]) / 2)
-// RETURN divideSumByTwo
+// const meanOfPair = leftArr.map((num, i) => (num + reversedRightArr[i]) / 2)
+// RETURN meanOfPair
 
 // WHAT IF AFTER DIVISION IN STEP# 41, THE NUMBER IS FLOAT => THEN HOW TO HAVE THAT FLOAT NUMBER TILL ONE DECIMAL POINT
 // => HOW TO CHECK IF NUMBER IS NOT AN INTEGER
 //  =>  by using => Number.isInteger(num) will return TRUE if the number is integer otherwise false
 
 // UPDATE OF STEP# 41
-// const divideSumByTwo = leftPartArr.map((num, i) => {
-//  => const sumDivideByTwo = (num + reversedRightPartArr[i]) / 2
-//            return Number.isInteger(sumDivideByTwo) ?             sumDivideByTwo : +sumDivideByTwo.toFixed(1)
+// const meanOfPair = leftArr.map((num, i) => {
+//  => const averagesArray = (num + reversedRightArr[i]) / 2
+//            return Number.isInteger(averagesArray) ?             averagesArray : +averagesArray.toFixed(1)
 // })
+
+// UPDATE: Better variable names
 
 function antipodesAverage(arr) {
   if (arr.length % 2 !== 0) {
     arr.splice(Math.floor(arr.length / 2), 1);
   }
-  const leftPartArr = arr.slice(0, arr.length / 2);
-  const reversedRightPartArr = arr.slice(arr.length / 2).reverse();
-  const sumDivideByTwo = leftPartArr.map((num, i) => {
-    const divideSumByTwo = (num + reversedRightPartArr[i]) / 2;
-    return Number.isInteger(divideSumByTwo)
-      ? divideSumByTwo
-      : +divideSumByTwo.toFixed(1);
+  const leftArr = arr.slice(0, arr.length / 2);
+  const reversedRightArr = arr.slice(arr.length / 2).reverse();
+  const averagesArray = leftArr.map((num, i) => {
+    const meanOfPair = (num + reversedRightArr[i]) / 2;
+    return Number.isInteger(meanOfPair) ? meanOfPair : +meanOfPair.toFixed(1);
   });
-  return sumDivideByTwo;
+  return averagesArray;
 }
 
 // Problem link: https://edabit.com/challenge/NJ5GkgQbshyDDX3bq
