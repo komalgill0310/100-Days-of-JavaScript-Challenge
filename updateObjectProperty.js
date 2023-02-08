@@ -40,3 +40,30 @@ function signAll(obj, name) {
   }
   return obj;
 }
+
+// Issue: current solution only checks if the nesting is at one level down.
+// However, the solution fails if there are multiple level nesting?
+
+// Sub-Problem: Update the "signature" property at all nested levels of the object.
+
+// RECURSION would be the solution to the given problem.
+
+// BREAKDOWN:
+// 1. USE A for...in loop to loop through the object.
+// 2. check if the typeof obj[prop] === "object"
+// => call the function agin -> Recursion Concept
+// => signAll(obj[prop], name)
+// 3. if the obj[prop] is not an object
+// => obj[prop] = name
+// 4. RETURN obj
+
+function signAll(obj, name) {
+  for (let prop in obj) {
+    if (typeof obj[prop] === "object") {
+      signAll(obj[prop], name);
+    } else {
+      obj["signature"] = name;
+    }
+  }
+  return obj;
+}
