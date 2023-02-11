@@ -17,10 +17,10 @@
 // => const insertChildOfpartitionArr = partitionArr.map(childArr => Array(2).fill([]))
 // EXPECTED OUTPUT: [[[],[]],[[],[]],[[],[]],[[],[]]]
 
-// IN ORDER TO EXCLUDE STEP#3
+// COMBINE ALL OF THE ABOVE STEPS
 // PERFORM THE OPERATION IN partitionArr
 // => HOW TO:
-// 1. const partitionArr = Array(givenArray.length - 1).fill([]).map(subArr => Array(2).fill([]))
+// 1. const partitionArr = Array(givenArray.length - 1).fill().map(() => Array(2).fill([]))
 // EXPECTED OUTPUT: [[[],[]],[[],[]],[[],[]],[[],[]]]
 // ACTUAL OUTPUT: [[[],[]],[[],[]],[[],[]],[[],[]]]
 
@@ -41,19 +41,44 @@
 // 4. first sub-child => push  first four element of the array
 // => second sub-child => push rest of the element
 
-// THE PROCESS WILL KEEP GOING UNTIL THE LAST child of SECOND SUB-CHILD of partitionArr is left with only of LENGTH = 1
-
 // BREAKDOWN:
 // 1. Use for loop to loop through the partitionArr
 // => PARAMETERS: i = 0; i < partitionArr.length; i++
 // INSIDE FOR LOOP:
-// => 1. Use another for loop to loop through the child of partitionArr
-// PARAMETERS: j = 0; j < partitionArr[i].length; j++
-// => INSIDE NESTED FOR LOOP:
-// => if second sub-child of partitionArr has a length of 1
-// return partitonArr
-// => else
-// => 1. partitionArr[i][j] = arr.slice(i,j)
-// => 2. partitionArr[i][j+1] = arr.slice(j)
+// => 1. partitionArr[i][j] = arr.slice(0, i+1)
+// => 2. partitionArr[i][j+1] = arr.slice(i+1)
 
-// YET TO FIGURE OUT
+// USING FOR LOOP
+function movingPartition(arr) {
+  if (!arr.length) return arr;
+  const partitionArr = Array(arr.length - 1)
+    .fill()
+    .map(() => Array(2).fill([]));
+  for (let i = 0; i < partitionArr.length; i++) {
+    partitionArr[i][0] = arr.slice(0, i + 1);
+    partitionArr[i][1] = arr.slice(i + 1);
+  }
+  return partitionArr;
+}
+
+// REMEMBER, SLICE return an array.
+// UPDATED VERSION OF CODE WOULD BE:
+
+function movingPartition(arr) {
+  if (!arr.length) return arr;
+  const partitionArr = [];
+  for (let i = 0; i < arr.length - 1; i++) {
+    partitionArr.push([arr.slice(0, i + 1), arr.slice(i + 1)]);
+  }
+  return partitionArr;
+}
+
+//USE MAP TO SOLVE THE CHALLENGE
+// 1. use Map to loop through the arr.slice(1) => in order to get element at index 0 inside map method
+// PARAMETERES: _ , i
+// => INSIDE MAP:
+// 1. [arr.slice(0, i+1), arr.slice(i+1)]
+
+function movingPartition(arr) {
+  return arr.slice(1).map((_, i) => [arr.slice(0, i + 1), arr.slice(i + 1)]);
+}
