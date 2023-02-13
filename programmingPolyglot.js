@@ -13,7 +13,7 @@
 // ==>  return proficientLanguages
 // 4. Use for loop on points Arr to map through the array
 // => PARAMETERS OF MAP WOULD BE -> i = points.length - 1; i > 0; i--
-// INSIDE FILTER METHOD:
+// INSIDE FOR METHOD:
 // => 2. Check IF the given point in an array is lesser than the given NUM
 // ==> num = givenNum - points[i]
 // ==> proficientLanguages.push(points[i])
