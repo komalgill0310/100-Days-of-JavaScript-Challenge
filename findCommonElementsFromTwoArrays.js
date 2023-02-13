@@ -13,7 +13,11 @@
 //2. Use Spread Operator on a set object in order to convert the object into an array and perform this operation inside "[]" brackets so the output we get will be in form of an array.
 // => return [...new Set(commonElementsArr)]
 
+// EDGE CASE: If either of the array is empty then return an empty array.
+// 1. Check if either arr1.length is falsy or arr2.length then return an []
+
 function commonElements(arr1, arr2) {
+  if (!arr1.length || !arr2.length) return [];
   const commonElementsArr = arr1.filter((num) => arr2.includes(num));
   return [...new Set(commonElementsArr)];
 }
