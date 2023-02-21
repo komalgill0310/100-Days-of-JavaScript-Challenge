@@ -61,3 +61,44 @@ function findIndexes() {
 // Problem Link: https://edabit.com/challenge/wtPATmEY9xQCpzWNT
 
 // YET TO FIGURE OUT
+
+function onesInfection(arr) {
+  const rowIndexArr = findIndexes(arr).rowIndexes;
+  const colIndexArr = findIndexes(arr).colIndexes;
+  console.log("row: ", rowIndexArr);
+  console.log("col: ", colIndexArr);
+  //UPDATE ROWS
+  for (let i = rowIndexArr[0]; i < rowIndexArr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      arr[i][j] = 1;
+    }
+    rowIndexArr[i];
+  }
+  console.log("after row Update: ", arr);
+  //UPDATE COLUMNS
+  for (let i = colIndexArr[0]; i < colIndexArr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      arr[j][i] = 1;
+      console.log("did you run");
+    }
+    colIndexArr[i];
+  }
+  console.log("after col update: ", arr);
+}
+
+function findIndexes(arr) {
+  const rowIndexes = [];
+  const columnIndexes = [];
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      if (arr[i][j] === 1) {
+        rowIndexes.push(i);
+        columnIndexes.push(j);
+      }
+    }
+  }
+  return {
+    rowIndexes: [...new Set(rowIndexes)],
+    colIndexes: [...new Set(columnIndexes)],
+  };
+}
