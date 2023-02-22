@@ -4,8 +4,6 @@
 // 1. Replace zero of row and column with one where it has one.
 // 2. Change the original Array
 
-// Tool to change the original array: Splice method.
-
 // HIGH LEVEL OVERVIEW:
 // 1. First find the indexes where the array contain one.
 // 2. Run a loop to update the row and column of that index with one.
@@ -30,60 +28,44 @@
 
 // 1. Update Row:
 // ===> 1. Use for loop to loop through the rowIndexArr in order to get the rowIndex where array has one
-// ======> Parameters: i = rowIndexArr[i]; i < rowIndexArr.length; i++
+// ======> Parameters: i = 0; i < rowIndexArr.length; i++
+// ====> Get the value of the rowIndexArr at current Index using i and store it in a variable called "row"
 // =======> 1.1 Use Nested for loop to loop through the given array in order to update the value of zero to one for the entire row.
 // =========> Parameters: j = 0; j < arr[i].length; j++
 // ===========> Update the value by using i and j for the array
-// ==============> arr[i][j] = 1
+// ==============> arr[row][j] = 1
 // Console.log(arr)
 
 // 2. Update Column:
-// ===> 1. Use for loop to loop through the given array in order to update the arr with value of one
-// =====> Parameters: i = 0; i < arr.length; i++
+// ===> 1. Use for loop to loop through the colIndexArr in order to update the all the columns of the array with value of one
+// =====> Parameters: i = 0; i < colIndexArr.length; i++
+// ===> Get the value of the colIndexArr at current Index using i and store it in a variable called "column"
 // =========> 1.1. use Use Nested for loop to loop through the given array in order to update the value of zero to one for the column.
-// ============> Parameters: j = colIndexArr[i]; j < colIndexArr.length; j++
+// ============> Parameters: j = 0; j < arr.length; j++
 // Update the value by using i and j for the array
-// ==================> arr[j][i] = 1
+// ==================> arr[j][column] = 1
 // console.log(arr)
 
-function findIndexes() {
-  const indexesOfOnesArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr[i].length; j++) {
-      if (arr[i][j] === 1) {
-        indexesOfOnesArr.push([i, j]);
-      }
-    }
-  }
-  console.log(indexesOfOnesArr);
-}
-
-// Problem Link: https://edabit.com/challenge/wtPATmEY9xQCpzWNT
-
-// YET TO FIGURE OUT
+// 3. Return the original arr
 
 function onesInfection(arr) {
   const rowIndexArr = findIndexes(arr).rowIndexes;
   const colIndexArr = findIndexes(arr).colIndexes;
-  console.log("row: ", rowIndexArr);
-  console.log("col: ", colIndexArr);
   //UPDATE ROWS
-  for (let i = rowIndexArr[0]; i < rowIndexArr.length; i++) {
+  for (let i = 0; i < rowIndexArr.length; i++) {
+    let row = rowIndexArr[i];
     for (let j = 0; j < arr[i].length; j++) {
-      arr[i][j] = 1;
+      arr[row][j] = 1;
     }
-    rowIndexArr[i];
   }
-  console.log("after row Update: ", arr);
   //UPDATE COLUMNS
-  for (let i = colIndexArr[0]; i < colIndexArr.length; i++) {
+  for (let i = 0; i < colIndexArr.length; i++) {
+    let column = colIndexArr[i];
     for (let j = 0; j < arr.length; j++) {
-      arr[j][i] = 1;
-      console.log("did you run");
+      arr[j][column] = 1;
     }
-    colIndexArr[i];
   }
-  console.log("after col update: ", arr);
+  return arr;
 }
 
 function findIndexes(arr) {
@@ -102,3 +84,5 @@ function findIndexes(arr) {
     colIndexes: [...new Set(columnIndexes)],
   };
 }
+
+// Problem Link: https://edabit.com/challenge/wtPATmEY9xQCpzWNT
