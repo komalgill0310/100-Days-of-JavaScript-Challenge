@@ -58,5 +58,5 @@ function overTime(arr) {
       regularHoursWorked + workedOvertime * overtimeMultiplier;
     earned = totalHoursWorked * hourlyRate;
   }
-  return `${earned.toFixed(2)}`;
+  return `$${earned.toFixed(2)}`;
 }
