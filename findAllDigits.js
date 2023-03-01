@@ -27,34 +27,24 @@ function findAllDigits(nums) {
   for (let i = 0; i < nums.length; i++) {
     const stringUniqueDigits = [...new Set(String(nums[i]).split(""))];
     if (digitsBetween0and9.length < 11) {
-      if (digitsBetween0and9.length > 1) {
+      if (digitsBetween0and9.length) {
         for (const strNum of stringUniqueDigits) {
-          // if (digitsBetween0and9.includes(strNum)) {
-          //   break;
-          // } else {
-          //   digitsBetween0and9.push(strNum);
-          // }
           if (!digitsBetween0and9.includes(strNum)) {
             digitsBetween0and9.push(strNum);
           }
         }
-        console.log(digitsBetween0and9);
       }
       if (digitsBetween0and9.length < 1) {
         digitsBetween0and9 = digitsBetween0and9.concat(stringUniqueDigits);
-        console.log("less than 1: ", digitsBetween0and9);
       }
       if (digitsBetween0and9.length === 10) {
-        console.log("length is 10: ", nums[i]);
         return nums[i];
       }
     }
-    if (digitsBetween0and9.length < 11) {
-      return "Missing digits!";
-    }
+  }
+  if (digitsBetween0and9.length < 11) {
+    return "Missing digits!";
   }
 }
-
-// YET TO SOLVE => GETTING "missing digits for all"
 
 // Problem link: https://edabit.com/challenge/5hsyLC2Ntgoqn2wAy
