@@ -19,32 +19,72 @@
 // 2. Otherwise, return "Draw"
 
 function ticTacToe(board) {
-  for (let i = 0; i < board.length; i++) {
-    let win = "";
-    // For Rows
-    if (board[i].slice(1).every((ticTacToe) => board[i][0] === ticTacToe)) {
-      win = board[i][0];
-      return win;
+  const winTests = [
+    checkRowsWinTest(board),
+    checkColumnsWinTest(board),
+    checkRightDiagonalForWin(board),
+    checkLeftDiagonalForWin(board),
+  ];
+
+  for (let winTest of winTests) {
+    const result = winTest;
+    if (result) {
+      return result;
     }
-    // For Column
-    for (let j = 0; j < i + 1; j++) {
-      if (board[j][i] === board[0][i]) {
-        win = board[0][i];
-      }
-    }
-    // For Right - Diagonal
-    for (let j = 0; j < i + 1; j++) {
-      if (board[j][i] === board[0][i]) {
-        console.log("Diagonal: ", board[0][i]);
-        win = board[0][i];
-      }
-      i + 1;
-    }
-    return win;
   }
   return "Draw";
 }
 
-// Yet to Solve
+// For Rows
+function checkRowsWinTest(board) {
+  for (let i = 0; i < board.length; i++) {
+    if (board[i].every((ticTac) => ticTac === board[i][0])) {
+      return board[i][0];
+    }
+  }
+  return false;
+}
+
+// For Column
+function checkColumnsWinTest(board) {
+  let matchingElementsCount = 0;
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board.length; j++) {
+      if (board[j][i] === board[0][i]) {
+        matchingElementsCount++;
+      }
+    }
+    if (matchingElementsCount === board.length) {
+      return board[0][i];
+    } else {
+      matchingElementsCount = 0;
+    }
+  }
+  return false;
+}
+
+// For Right Diagonal
+function checkRightDiagonalForWin(board) {
+  let matchingElementsCount = 0;
+  for (let i = 0; i < board.length; i++) {
+    if (board[i][i] === board[0][0]) {
+      matchingElementsCount++;
+    }
+  }
+  return matchingElementsCount === board.length ? board[0][0] : false;
+}
+
+// For Left Diagonal
+function checkLeftDiagonalForWin(board) {
+  let matchingElementsCount = 0;
+  for (let i = board.length - 1, j = 0; i >= 0; i--, j++) {
+    if (board[i][j] === board[0][board.length - 1]) {
+      matchingElementsCount++;
+    }
+  }
+  return matchingElementsCount === board.length
+    ? board[0][board.length - 1]
+    : false;
+}
 
 // Problem link: https://edabit.com/challenge/jsukwFKLKJx2qLs5b
