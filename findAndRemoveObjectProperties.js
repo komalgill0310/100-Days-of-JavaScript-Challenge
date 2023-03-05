@@ -7,7 +7,7 @@
 function findAndRemove(obj) {
   for (const prop in obj) {
     for (const [key, value] of Object.entries(obj[prop])) {
-      if (!Number(value)) {
+      if (isNaN(value)) {
         delete obj[prop][key];
       } else {
         obj[prop][key] = Number(value);
