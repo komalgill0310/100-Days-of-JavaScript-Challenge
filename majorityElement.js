@@ -30,4 +30,30 @@ var majorityElement = function (nums) {
   )[0][0];
 };
 
+// A BETTER APPROACH
+
+var majorityElement = function (nums) {
+  const freq = {};
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] in freq) {
+      freq[nums[i]]++;
+    } else {
+      freq[nums[i]] = 1;
+    }
+  }
+  let maxFreq = 0;
+  let majority = null;
+  for (let num in freq) {
+    if (freq[num] > maxFreq) {
+      maxFreq = freq[num];
+      majority = num;
+    }
+  }
+  if (maxFreq > nums.length / 2) {
+    return majority;
+  } else {
+    return null;
+  }
+};
+
 // Problem link: https://leetcode.com/problems/majority-element/
