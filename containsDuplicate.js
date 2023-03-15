@@ -4,27 +4,24 @@
 // 3. Subtract the (last index - first index) <= k
 
 // Steps:
-// 1. use Set on the given array to exclude duplicates
-// 2. use map on the unique values arrays, and check if the index are not equal, then return [nums.indexOf(num), nums.lastIndexOf(num)]
-// 3. use filter with map to exclude undefined values
-// 4. Use every method on the duplicateIndices and perform subtract operation on each sub array and check if the result is <= k
+// 1. Create an object called lastIndex
+// 2. Loop through an array using for loop
+// 3. store current num in an array at index i in a variable called num
+// 4. check if the num is a key in lastIndex object and if it is then check if i - lastIndex[num] <=k
+// ===> return true
+// 5. lastIndex[num] = i
+// 6. return false
 
 var containsNearbyDuplicate = function (nums, k) {
-  const uniqueNums = [...new Set(nums)];
-  console.log(uniqueNums);
-  const duplicateIndices = uniqueNums
-    .map((num) => {
-      if (nums.indexOf(num) != nums.lastIndexOf(num)) {
-        return [nums.indexOf(num), nums.lastIndexOf(num)];
-      }
-    })
-    .filter((value) => value != undefined);
-  console.log("duplicateIndices: ", duplicateIndices);
-  return duplicateIndices.every(
-    (indicesArr) => Math.abs(indicesArr[0] - indicesArr[1]) <= k
-  );
+  const lastIndex = {};
+  for (let i = 0; i < nums.length; i++) {
+    const num = nums[i];
+    if (lastIndex.hasOwnProperty(num) && i - lastIndex[num] <= k) {
+      return true;
+    }
+    lastIndex[num] = i;
+  }
+  return false;
 };
 
 // Problem link: https://leetcode.com/problems/contains-duplicate-ii/
-
-// YET TO SOLVE
