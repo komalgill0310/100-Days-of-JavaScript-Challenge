@@ -6,6 +6,13 @@
 // 5. Add each object's key value to an integer
 // 6. Return integer
 
+// SUBTRACTIVE PRINICIPLE RULE =>
+// This rule applies only when certain pairs of numerals are used in combination, such as:
+// 1. I placed before V or X (e.g. IV represents 4, IX represents 9)
+// 2. X placed before L or C (e.g. XL represents 40, XC represents 90)
+// 3. C placed before D or M (e.g. CD represents 400, CM represents 900)
+// 4. In all other cases, the numerals are added together to represent the total value.
+
 var romanToInt = function (s) {
   const romanIntergerObj = {
     I: 1,
@@ -18,12 +25,27 @@ var romanToInt = function (s) {
   };
 
   const splitRomanArr = s.split("");
-  return splitRomanArr.reduce(
-    (integer, currRomanVal) => integer + romanIntergerObj[currRomanVal],
-    0
-  );
+  let integer = 0;
+  for (let i = 1; i <= splitRomanArr.length; i++) {
+    const firstRomanValue = splitRomanArr[i - 1];
+    const secondRomanValue = splitRomanArr[i];
+    2;
+    if (
+      (firstRomanValue === "I" &&
+        (secondRomanValue === "V" || secondRomanValue === "X")) ||
+      (firstRomanValue === "X" &&
+        (secondRomanValue === "L" || secondRomanValue === "C")) ||
+      (firstRomanValue === "C" &&
+        (secondRomanValue === "D" || secondRomanValue === "M"))
+    ) {
+      integer +=
+        romanIntergerObj[secondRomanValue] - romanIntergerObj[firstRomanValue];
+      i += 1;
+    } else {
+      integer += romanIntergerObj[firstRomanValue];
+    }
+  }
+  return integer;
 };
 
 // Problem link: https://leetcode.com/problems/roman-to-integer/
-
-// yet to Solve
