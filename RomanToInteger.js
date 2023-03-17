@@ -48,4 +48,31 @@ var romanToInt = function (s) {
   return integer;
 };
 
+// UPDATE VERSION
+
+var romanToInt = function (s) {
+  const romanIntergerObj = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+
+  let integer = 0;
+  for (let i = 0; i < s.length; i++) {
+    const current = romanIntergerObj[s[i]];
+    const next = romanIntergerObj[s[i + 1]];
+    if (current && current < next) {
+      integer += next - current;
+      i++;
+    } else {
+      integer += current;
+    }
+  }
+  return integer;
+};
+
 // Problem link: https://leetcode.com/problems/roman-to-integer/
