@@ -10,7 +10,7 @@
 // 3. return the output from map method.
 
 var buildArray = function (nums) {
-  return nums.map((num, i) => nums[num]);
+  return nums.map((num) => nums[num]);
 };
 
 // Problem link: https://leetcode.com/problems/build-array-from-permutation/
