@@ -4,7 +4,7 @@
 // Breakdown:
 // 1. Use map on the given array and store the output ion a variable called "splitNames"
 // ==> use split on the each value of the given array
-// 3. Use flatMap on the output of the Step#1
+// 2. Use flatMap on the output of the Step#1
 // ==> 1. Use template literal on each subArray of splitNames array and return the output in the desired format with a `${first ch. of a first word} ${first ch. of a second word}`
 
 // Puzzle Piece:
