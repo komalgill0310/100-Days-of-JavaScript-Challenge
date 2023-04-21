@@ -16,7 +16,7 @@ var smallerNumbersThanCurrent = function (nums) {
       : 0;
     countOfSmallNumForEachNum.push(countOfSmallerNumbers);
   }
-  console.log(countOfSmallNumForEachNum);
+  return countOfSmallNumForEachNum;
 };
 
 // Problem link: https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/
