@@ -1,16 +1,15 @@
 // Breakdown:
-// 1. Create an empty string variable called "shuffledString"
+// 1. Create an empty Array called "shuffledStringArr" whose length is equal to the length of the indices Array
 // 2. loop through an array called indices
-// 3. get character from the given string at the index of the value of the arr and add that character to the shuffledString
-// 4. return shuffledString
+// 3. replace shuffledStringArr[indices[i]] = s[i]
+// 4. return shuffledStringArr.join("")
 
 var restoreString = function (s, indices) {
-  let shuffledString = "";
+  let shuffledStringArr = Array(indices.length).fill(0);
   for (let i = 0; i < indices.length; i++) {
-    console.log(indices[i]);
-    shuffledString += s[indices[i]];
+    shuffledStringArr[indices[i]] = s[i];
   }
-  return shuffledString;
+  return shuffledStringArr.join("");
 };
 
 // Problem link: https://leetcode.com/problems/shuffle-string/
