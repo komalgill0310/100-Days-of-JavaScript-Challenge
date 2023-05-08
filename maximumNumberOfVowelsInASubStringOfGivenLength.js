@@ -29,6 +29,6 @@ var maxVowels = function (s, k) {
   return Math.max(...numOfVowelsInSubStrArr);
 };
 
-// ISSUE: some test cases failed, due to time issues.
+// ISSUE: some test cases failed, due to time issues => NEED DSA KNOWLEDGE
 
 //Problem link: https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/
