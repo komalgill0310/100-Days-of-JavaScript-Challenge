@@ -8,14 +8,11 @@ var findLucky = function (arr) {
     }
   }
   for (const key in freq) {
-    if (Object.entries(freq).every(([key, value]) => key === String(value))) {
-      return Math.max(...arr);
-    } else if (key === String(freq[key])) {
-      return freq[key];
-    } else {
-      return -1;
+    if (key != String(freq[key])) {
+      delete freq[key];
     }
   }
+  return Object.keys(freq).length ? Math.max(...Object.values(freq)) : -1;
 };
 
 // SOME TEST CASES ARE FAILING
