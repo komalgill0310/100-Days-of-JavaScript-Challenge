@@ -14,7 +14,6 @@ var countConsistentStrings = function (allowed, words) {
     const wordArr = word.split("");
     const isConsistent = wordArr.every((ch) => allowed.includes(ch));
     isConsistent && countConsistentStr++;
-    continue;
   }
   return countConsistentStr;
 };
