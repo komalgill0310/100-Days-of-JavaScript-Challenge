@@ -12,3 +12,20 @@ var maxProductDifference = function (nums) {
 };
 
 //Problem link: https://leetcode.com/problems/maximum-product-difference-between-two-pairs/
+
+// UPDATED VERSION
+
+// Breakdown:
+// 1. sort the array in ascending order.
+// 2. Multiply the last two numbers from an array and store it in a variable called maxProduct
+// 3. Multiply the first two numbers from an array and store it in a variable called minProduct
+// 4. return the difference of maxProduct - minProduct
+
+var maxProductDifference = function (nums) {
+  nums.sort((a, b) => a - b);
+  const [secondToLast, last] = nums.slice(-2);
+  const [first, second] = nums;
+  const maxProduct = secondToLast * last;
+  const minProduct = first * second;
+  return maxProduct - minProduct;
+};
