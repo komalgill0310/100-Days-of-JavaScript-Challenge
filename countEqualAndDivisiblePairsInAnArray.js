@@ -4,7 +4,7 @@
 // ==> Parameters: i = 0; i < nums.length; i++
 // =======> 1. Use nested for loop to loop over the given array
 // ================> Parameters: j = 0; j < nums.length; j++
-// =======================> 1. Check if nums[i] === nums[j] && i*j = k
+// =======================> 1. Check if nums[i] === nums[j] && (i * j) % k === 0
 // ==============================> 1. countNumOfPairs++
 // 3. return countNumOfPairs
 
