@@ -10,10 +10,8 @@
 var maximizeSum = function (nums, k) {
   let maxSum = 0;
   let maxNum = Math.max(...nums);
-  while (k > 0) {
-    maxSum += maxNum;
-    maxNum++;
-    k--;
+  while (k-- > 0) {
+    maxSum += maxNum++;
   }
   return maxSum;
 };
