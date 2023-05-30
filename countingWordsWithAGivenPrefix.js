@@ -1,8 +1,8 @@
 var prefixCount = function (words, pref) {
   const prefLength = pref.length;
   return words.reduce(
-    (totalMatchedStr, word) =>
-      totalMatchedStr + (word.slice(0, prefLength) === pref ? 1 : 0),
+    (matchCount, word) =>
+      matchCount + (word.slice(0, prefLength) === pref ? 1 : 0),
     0
   );
 };
