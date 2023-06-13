@@ -1,17 +1,17 @@
 var maximumProduct = function (nums) {
-  if (!nums.every((num) => num < 0)) {
-    nums = nums.map((num) => (num < 0 ? Math.abs(num) : num));
-  }
-  const maxNum1 = Math.max(...nums);
-  nums.splice(nums.indexOf(maxNum1), 1);
-  const maxNum2 = Math.max(...nums);
-  nums.splice(nums.indexOf(maxNum2), 1);
-  const maxNum3 = Math.max(...nums);
-  nums.splice(nums.indexOf(maxNum3), 1);
-  console.log(maxNum1, maxNum2, maxNum3);
-  return maxNum1 * maxNum2 * maxNum3;
+  let maxProduct = -Infinity;
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      for (let k = j + 1; k < nums.length; k++) {
+        const product = nums[i] * nums[j] * nums[k];
+        if (product > maxProduct) {
+          maxProduct = product;
+        }
+      }
+    }
+  return maxProduct;
 };
 
-// FEW TEST CASES ARE FAILING
+// solution is failing if length is greater
 
 // Problem link: https://leetcode.com/problems/maximum-product-of-three-numbers/
