@@ -1,15 +1,11 @@
 var maximumProduct = function (nums) {
-  let maxProduct = -Infinity;
-  for (let i = 0; i < nums.length; i++) {
-    for (let j = i + 1; j < nums.length; j++) {
-      for (let k = j + 1; k < nums.length; k++) {
-        const product = nums[i] * nums[j] * nums[k];
-        if (product > maxProduct) {
-          maxProduct = product;
-        }
-      }
-    }
-  return maxProduct;
+  nums.sort((a, b) => a - b);
+
+  const n = nums.length;
+  const product1 = nums[0] * nums[1] * nums[n - 1]; // Product of two smallest numbers and the largest number
+  const product2 = nums[n - 1] * nums[n - 2] * nums[n - 3]; // Product of three largest numbers
+
+  return Math.max(product1, product2);
 };
 
 // solution is failing if length is greater
