@@ -30,3 +30,11 @@ function reverseString(str) {
 // “Cat”, return “taC”
 // “The Daily Byte”, return "etyB yliaD ehT”
 // “civic”, return “civic”
+
+// ======================================================================================================================================================================
+
+// Problem link: https://leetcode.com/problems/reverse-string/
+
+function reverseString(str) {
+  return str.reverse();
+}
