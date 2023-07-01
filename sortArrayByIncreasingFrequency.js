@@ -1,4 +1,5 @@
 var frequencySort = function (nums) {
+  // TOTAL OF EACH VALUE'S OCCURENCE IN NUMS ARRAY
   const freq = {};
   for (let i = 0; i < nums.length; i++) {
     if (Object.hasOwn(freq, nums[i])) {
@@ -8,21 +9,29 @@ var frequencySort = function (nums) {
     }
   }
 
-  // GET KEY VALUE PARIS
+  // GET KEY VALUE PAIRS
   const arr = [];
   for (const [key, value] of Object.entries(freq)) {
     arr.push([key, value]);
   }
-  const sortedArr = arr.sort((a, b) => {
+
+  // SORT THE ARRAY
+  arr.sort((a, b) => {
     if (a[1] === b[1]) {
-      console.log("if: values are equal");
-      return +b[0] - +a[0];
-    } else {
-      console.log("else: vlues are not equal", +b[0] - +a[0]);
-      return +a[0] - +b[0];
+      return b[0] - a[0];
     }
+    return a[1] - b[1];
   });
-  console.log(sortedArr);
+
+  // PUSH THE VALUES IN AN ARRAY UNTIL THE FREQUENCY IS 0
+  const sortedArr = [];
+  for (let [value, frequency] of arr) {
+    while (frequency > 0) {
+      sortedArr.push(+value);
+      frequency--;
+    }
+  }
+  return sortedArr;
 };
 
 // Problem link: https://leetcode.com/problems/sort-array-by-increasing-frequency/
