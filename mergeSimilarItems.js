@@ -9,20 +9,20 @@ var mergeSimilarItems = function (items1, items2) {
 };
 
 function mergeItems(arr1, arr2) {
+  const arr2Values = arr2.map((item) => item[0]);
+  const arr1Values = arr1.map((item) => item[0]);
   const ret = [];
-  for (let items1 of arr1) {
-    const [value1, weight1] = items1;
-    for (let items2 of arr2) {
-      const [value2, weight2] = items2;
-      if (value1 === value2) {
-        ret.push([value1, weight1 + weight2]);
-      }
-      break;
+  ret.push(...arr2.filter((item2) => !arr1Values.includes(item2[0])));
+  arr1.forEach((item) => {
+    if (!arr2Values.includes(item[0])) {
+      ret.push(item);
+    } else {
+      const index = arr2Values.indexOf(item[0]);
+      ret.push([item[0], item[1] + arr2[index][1]]);
     }
-  }
+  });
+  ret.sort((a, b) => a[0] - b[0]);
   return ret;
 }
-
-// yet to solve
 
 // Problem link: https://leetcode.com/problems/merge-similar-items/
