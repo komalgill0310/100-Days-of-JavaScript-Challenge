@@ -3,12 +3,10 @@ var replaceDigits = function (s) {
   const str = s.join("");
   for (let i = 1; i < s.length; i += 2) {
     const charCode = str.charCodeAt(i - 1);
-    const value = Number(charCode + s[i]);
-    console.log(typeof value);
-    console.log(String.fromCodePoint(value), s[i]);
-    s[i] = String.fromCodePoint(value);
+    const value = charCode + Number(s[i]);
+    s[i] = String.fromCharCode(value);
   }
-  console.log(s);
+  return s.join("");
 };
 
 // Problem link: https://leetcode.com/problems/replace-all-digits-with-characters/
