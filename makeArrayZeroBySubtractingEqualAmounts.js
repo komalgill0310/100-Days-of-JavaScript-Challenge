@@ -13,4 +13,10 @@ var minimumOperations = function (nums) {
   return totalOperation;
 };
 
+// OR
+
+var minimumOperations = function (nums) {
+  return [...new Set(nums)].filter((num) => num != 0).length;
+};
+
 // Problem link: https://leetcode.com/problems/make-array-zero-by-subtracting-equal-amounts/description/
