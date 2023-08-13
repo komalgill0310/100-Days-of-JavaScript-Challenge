@@ -56,4 +56,23 @@ var majorityElement = function (nums) {
   }
 };
 
+// ANOTHER SOLUTION: Better time and space complexity
+
+var majorityElement = function (nums) {
+  const freq = {};
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] in freq) {
+      freq[nums[i]]++;
+    } else {
+      freq[nums[i]] = 1;
+    }
+  }
+  for (let num in freq) {
+    if (freq[num] > nums.length / 2) {
+      return num;
+    }
+  }
+  return null;
+};
+
 // Problem link: https://leetcode.com/problems/majority-element/
