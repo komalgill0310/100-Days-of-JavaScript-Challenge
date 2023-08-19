@@ -1,6 +1,6 @@
 var reverseWords = function (s) {
   return s
-    .match(/\b[a-zA-Z]+\b/g)
+    .match(/\b[a-zA-Z0-9]+\b/g)
     .reverse()
     .join(" ");
 };
