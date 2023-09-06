@@ -1,5 +1,5 @@
 var averageValue = function (nums) {
-  const divisibleBy3 = nums.filter((num, i) => num % 2 === 0 && num % 3 === 0);
+  const divisibleBy3 = nums.filter((num) => num % 2 === 0 && num % 3 === 0);
   const length = divisibleBy3.length;
   const avg = length
     ? divisibleBy3.reduce((total, curr) => total + curr, 0) / length
