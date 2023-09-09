@@ -1,5 +1,3 @@
-// Incorrect solution: Still some cases are failing
-
 var findColumnWidth = function (grid) {
   const rowLength = grid.length;
   const colLength = grid[0].length;
