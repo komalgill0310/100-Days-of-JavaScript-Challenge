@@ -1,5 +1,3 @@
-// Calculate Digit Sum of a String
-
 var digitSum = function (s, k) {
   while (s.length > k) {
     const pairs = [];
