@@ -18,4 +18,4 @@ Feel free to explore the challenges, solutions, and progress documented in the r
 
 # Author
 
-Komal | Software Developer | [Quizzical](https://quizzical03.netlify.app/) | [LinkedIn](https://www.linkedin.com/in/hssa03/)
+Komal | Software Developer | [LinkedIn](https://www.linkedin.com/in/hssa03/)
